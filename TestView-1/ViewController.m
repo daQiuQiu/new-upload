@@ -11,12 +11,15 @@
 @interface ViewController ()
 
 @end
-
+UIViewController *new;
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    UIStoryboard *SecondSB = [UIStoryboard storyboardWithName:@"Second" bundle:nil];
+    new = [SecondSB instantiateViewControllerWithIdentifier:@"SB2"];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,4 +27,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)jumpToNextView:(UIButton *)sender {
+    [self.navigationController pushViewController: new animated:YES];
+}
 @end
